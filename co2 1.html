@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f5f9;
+        }
+
+        header {
+            background-color: #173b7a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .profile {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px gray;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #173b7a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #173b7a;
+        }
+
+        @media (max-width: 600px) {
+            .profile {
+                margin: 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Student Profile</h1>
+    <p>Web Programming Laboratory</p>
+</header>
+
+<section class="profile">
+
+    <div class="photo">
+        RR
+    </div>
+
+    <div>
+        <h2>Rohith Reddy</h2>
+
+        <p><b>Course:</b> B.Tech Information Technology</p>
+        <p><b>Year:</b> II Year</p>
+        <p><b>College:</b> SIMATS Engineering</p>
+        <p><b>Skills:</b> HTML, CSS, JavaScript, Python</p>
+        <p><b>Email:</b> rohith@example.com</p>
+        <p><b>Register No:</b> __________________</p>
+    </div>
+
+</section>
+
+</body>
+</html>

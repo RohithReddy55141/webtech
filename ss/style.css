@@ -34,7 +34,7 @@
 
 /* 1.1 ELEMENT SELECTOR DEMONSTRATION: Universal selector & Root elements */
 * {
-  box-sizing: border-box; /* BOX MODEL: border-box calculation */
+  box-sizing: border-box; /* BOX MODEL: border-box calculation ensures padding fits inside width */
   margin: 0;
   padding: 0;
 }
@@ -43,6 +43,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden; /* MOBILE VIEW: Prevents horizontal page scrolling */
 }
 
 body {
@@ -53,6 +54,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden; /* MOBILE VIEW: Strict viewport bounds */
 }
 
 /* 1.3 GROUP SELECTOR DEMONSTRATION: Grouping headings for common font settings */
@@ -60,6 +62,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--dark-blue);
   line-height: 1.25;
   font-weight: 700;
+  overflow-wrap: break-word; /* MOBILE VIEW: Prevents text overflow */
 }
 
 p {
@@ -96,7 +99,7 @@ a:hover {
 
 /* POSITIONING DEMONSTRATION: position: sticky with z-index */
 .site-header {
-  position: sticky; /* POSITIONING: Sticky header stay on scroll */
+  position: sticky; /* POSITIONING: Sticky header stays on scroll */
   top: 0;
   z-index: 100;    /* POSITIONING: z-index ensures header sits above content */
   background-color: var(--white);
@@ -738,7 +741,7 @@ textarea {
 
 .content-box-demo {
   box-sizing: content-box;       /* BOX MODEL DEMONSTRATION: content-box behavior */
-  width: 100%;
+  width: calc(100% - 36px);      /* MOBILE SAFE: Account for padding + border */
   padding: 15px;
   border: 3px solid var(--primary-blue);
   background-color: #f0fdf4;
@@ -904,10 +907,10 @@ textarea {
 }
 
 /* ==========================================================================
-   12. RESPONSIVE DESIGN - MEDIA QUERIES
+   12. RESPONSIVE DESIGN - MEDIA QUERIES FOR MOBILE VIEW
    - Breakpoint 1: max-width 900px (Tablets)
    - Breakpoint 2: max-width 600px (Mobile Devices)
-   - Breakpoint 3: max-width 375px (Small Mobile Devices)
+   - Breakpoint 3: max-width 375px (Small Mobile Devices - 375px Viewport)
    ========================================================================== */
 
 /* RESPONSIVE BREAKPOINT 1: Tablets & Medium Devices (<= 900px) */
@@ -950,78 +953,131 @@ textarea {
 /* RESPONSIVE BREAKPOINT 2: Mobile Devices (<= 600px) */
 @media screen and (max-width: 600px) {
 
-  /* Navigation bar converts to vertical wrapped flow */
+  /* Mobile Navigation layout: Centered vertical flex with touch-friendly pills */
   .nav-container {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.85rem;
+    padding: 0.75rem 1rem;
   }
 
-  .nav-links {
-    gap: 1rem;
-    flex-wrap: wrap;
+  .logo {
     justify-content: center;
   }
 
-  /* Main Headings scale down */
+  .nav-links {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 0.88rem;
+    padding: 0.4rem 0.75rem;
+    background-color: var(--light-bg);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+  }
+
+  /* Main Hero Section adjustments for Mobile View */
+  #home {
+    padding: 3rem 1rem;
+  }
+
   .hero-content > h1 {
     font-size: 2rem;
   }
 
-  /* All Grids collapse to 1 single column */
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  /* All Grids collapse to 1 single column for vertical scrolling */
   .category-grid,
   .event-grid,
   .footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* CSS GRID MOBILE: Single Column Layout */
+    gap: 1.25rem;
+  }
+
+  /* Section padding reduced for compact mobile screens */
+  #categories,
+  #events,
+  #register,
+  #contact,
+  .demo-section {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .event-card {
+    padding: 1.5rem;
   }
 
   /* Form rows collapse to vertical single inputs */
   .form-row {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .form-wrapper {
-    padding: 2rem 1.25rem;
+    padding: 1.75rem 1.15rem;
   }
 
-  /* Buttons expand to fill screen */
+  /* Buttons expand to fill screen in mobile view */
   .hero-buttons {
     flex-direction: column;
     width: 100%;
   }
 
   .btn {
-    width: 100%;
+    width: 100%; /* MOBILE BUTTON: 100% full-width touch target */
   }
 
-  .floating-help span {
-    display: none; /* Hide button text on small screens, keep icon */
-  }
-
+  /* Floating Help Desk button mobile tuning */
   .floating-help {
-    padding: 0.85rem;
-    border-radius: 50%;
+    bottom: 15px;
+    right: 15px;
+    padding: 0.65rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  /* Float demonstration container wrapping on mobile screens */
+  .float-box {
+    float: none;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-right: 0;
+    margin-bottom: 12px;
   }
 }
 
-/* RESPONSIVE BREAKPOINT 3: Small Mobile Devices (<= 375px) */
+/* RESPONSIVE BREAKPOINT 3: Small Mobile Devices (<= 375px Mobile Viewport) */
 @media screen and (max-width: 375px) {
   
-  body {
-    font-size: 15px;
+  html {
+    font-size: 14.5px;
   }
 
   .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
   }
 
   .hero-content > h1 {
-    font-size: 1.7rem;
+    font-size: 1.75rem;
   }
 
   .section-title {
-    font-size: 1.6rem;
+    font-size: 1.55rem;
+  }
+
+  .hero-card {
+    padding: 1.5rem 1.25rem;
   }
 
   .event-card {
@@ -1029,7 +1085,23 @@ textarea {
   }
 
   .badge-open {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.6rem;
+    font-size: 0.68rem;
+    padding: 0.25rem 0.55rem;
+    top: -12px;
+    right: 12px;
+  }
+
+  .btn-large {
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .floating-help span {
+    display: none; /* Icon-only floating help on 375px narrow screens */
+  }
+
+  .floating-help {
+    padding: 0.75rem;
+    border-radius: 50%;
   }
 }

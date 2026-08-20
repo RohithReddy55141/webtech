@@ -1,0 +1,1035 @@
+/* ==========================================================================
+   UNIVERSITY EVENT REGISTRATION PORTAL - MAIN STYLESHEET
+   Course: Web Technology Practical Assessment (HTML5 & CSS3)
+   Academic Year: 2026
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS VARIABLES (:root) - Primary University Theme Palette
+   -------------------------------------------------------------------------- */
+:root {
+  --primary-blue: #075b9d;    /* Preferred Primary Blue */
+  --dark-blue: #073b63;       /* Preferred Dark Blue */
+  --secondary-blue: #00a6d6;  /* Preferred Secondary Blue */
+  --accent-yellow: #ffb703;   /* Preferred Accent Yellow */
+  --light-bg: #f4f8fc;        /* Preferred Light Background */
+  --white: #ffffff;           /* Preferred White */
+  --text-dark: #1e293b;       /* Dark slate text */
+  --text-muted: #64748b;      /* Muted gray text */
+  --border-color: #cbd5e1;    /* Light border gray */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(7, 91, 157, 0.1);
+  --shadow-lg: 0 10px 25px rgba(7, 91, 157, 0.15);
+  --transition-fast: 0.25s ease;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}
+
+/* ==========================================================================
+   1. BOX MODEL & RESET DEMONSTRATION
+   - Global box-sizing set to border-box
+   - Border-box includes padding and border within element width calculations
+   ========================================================================== */
+
+/* 1.1 ELEMENT SELECTOR DEMONSTRATION: Universal selector & Root elements */
+* {
+  box-sizing: border-box; /* BOX MODEL: border-box calculation */
+  margin: 0;
+  padding: 0;
+}
+
+/* 1.2 ELEMENT SELECTOR: HTML & Body styling */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--light-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1.3 GROUP SELECTOR DEMONSTRATION: Grouping headings for common font settings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--dark-blue);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: 0.75rem;
+  color: var(--text-muted);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-blue);
+  transition: color var(--transition-fast);
+}
+
+/* 1.4 PSEUDO-CLASS SELECTOR DEMONSTRATION: Standard anchor hover */
+a:hover {
+  color: var(--secondary-blue);
+}
+
+/* Layout Container Utility */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   - Demonstrates POSITIONING (position: sticky)
+   - Demonstrates FLEXBOX (display: flex, justify-content, align-items, gap)
+   ========================================================================== */
+
+/* POSITIONING DEMONSTRATION: position: sticky with z-index */
+.site-header {
+  position: sticky; /* POSITIONING: Sticky header stay on scroll */
+  top: 0;
+  z-index: 100;    /* POSITIONING: z-index ensures header sits above content */
+  background-color: var(--white);
+  box-shadow: var(--shadow-md);
+  border-bottom: 3px solid var(--primary-blue);
+}
+
+/* FLEXBOX DEMONSTRATION: Header Container */
+.nav-container {
+  display: flex;             /* FLEXBOX: Flex container */
+  justify-content: space-between; /* FLEXBOX: Push logo left, links right */
+  align-items: center;       /* FLEXBOX: Vertically center items */
+  padding: 0.88rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* FLEXBOX: Gap between icon and text */
+}
+
+.logo-icon {
+  font-size: 2rem;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--dark-blue);
+  letter-spacing: -0.3px;
+}
+
+.logo-subtitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--secondary-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* FLEXBOX DEMONSTRATION: Navigation List */
+.nav-links {
+  display: flex;             /* FLEXBOX: Inline horizontal nav items */
+  gap: 1.75rem;              /* FLEXBOX: Spacing between links */
+  list-style: none;
+  align-items: center;
+}
+
+/* 2.5 DESCENDANT SELECTOR DEMONSTRATION: Targeting links inside .nav-links */
+.nav-links a {
+  position: relative;
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--dark-blue);
+  padding: 0.5rem 0;
+}
+
+/* 2.10 PSEUDO-ELEMENT DEMONSTRATION: Animated underline hover effect */
+.nav-links a::after {
+  content: '';              /* PSEUDO-ELEMENT: Pseudo element content */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: var(--accent-yellow);
+  transition: width var(--transition-fast);
+  border-radius: 2px;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   3. HERO SECTION (#home)
+   - ID SELECTOR DEMONSTRATION
+   - POSITIONING DEMONSTRATION (relative, absolute)
+   - FLEXBOX & VISUAL EFFECTS (gradients, box-shadow, text-shadow)
+   ========================================================================== */
+
+/* 2.3 ID SELECTOR DEMONSTRATION: #home */
+#home {
+  position: relative;
+  background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 60%, var(--secondary-blue) 100%);
+  color: var(--white);
+  padding: 4.5rem 1.5rem;
+  overflow: hidden;
+}
+
+/* FLEXBOX DEMONSTRATION: Hero content alignment */
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.hero-content {
+  flex: 1 1 55%;
+}
+
+.hero-tag {
+  display: inline-block;
+  background-color: rgba(255, 183, 3, 0.2);
+  color: var(--accent-yellow);
+  border: 1px solid var(--accent-yellow);
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 1.25rem;
+}
+
+/* 2.6 CHILD SELECTOR DEMONSTRATION: Direct child h1 of .hero-content */
+.hero-content > h1 {
+  font-size: 2.8rem;
+  color: var(--white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* VISUAL EFFECT: text-shadow */
+  margin-bottom: 1.25rem;
+}
+
+.hero-description {
+  font-size: 1.12rem;
+  color: #e2e8f0;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+/* FLEXBOX DEMONSTRATION: Hero CTA buttons */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* POSITIONING DEMONSTRATION: Relative Card Wrapper */
+.hero-card-wrapper {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+}
+
+/* POSITIONING & BOX MODEL DEMONSTRATION */
+.hero-card {
+  position: relative; /* POSITIONING: Parent for absolute badge */
+  background: var(--white);
+  color: var(--text-dark);
+  padding: 2.25rem 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* VISUAL EFFECT: box-shadow */
+  border-top: 5px solid var(--accent-yellow);
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+  transition: transform var(--transition-fast);
+}
+
+.hero-card:hover {
+  transform: translateY(-8px); /* VISUAL EFFECT: hover transform */
+}
+
+/* POSITIONING DEMONSTRATION: position: absolute for status badge */
+.badge-open {
+  position: absolute;      /* POSITIONING: Absolute status badge */
+  top: -14px;
+  right: 20px;
+  background-color: #10b981;
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.88rem;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+  z-index: 5;
+}
+
+.hero-card-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-card p {
+  font-size: 0.92rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-card-stats {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.88rem;
+  color: var(--dark-blue);
+}
+
+/* ==========================================================================
+   4. BUTTON STYLES & VISUAL EFFECTS
+   - Class selectors, gradients, transition, box-shadow, transform
+   ========================================================================== */
+
+/* 2.2 CLASS SELECTOR DEMONSTRATION: .btn */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-fast); /* VISUAL EFFECT: transition */
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  box-shadow: 0 4px 10px rgba(7, 91, 157, 0.3);
+}
+
+/* PSEUDO-CLASS SELECTOR DEMONSTRATION: .btn-primary:hover */
+.btn-primary:hover {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  transform: translateY(-2px); /* VISUAL EFFECT: transform */
+  box-shadow: 0 6px 15px rgba(7, 59, 99, 0.4);
+}
+
+.btn-secondary {
+  background-color: var(--accent-yellow);
+  color: var(--dark-blue);
+  box-shadow: 0 4px 10px rgba(255, 183, 3, 0.3);
+}
+
+.btn-secondary:hover {
+  background-color: #e0a200;
+  color: var(--dark-blue);
+  transform: translateY(-2px);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.btn-large {
+  padding: 1rem 2.5rem;
+  font-size: 1.08rem;
+}
+
+/* ==========================================================================
+   5. EVENT CATEGORIES SECTION (#categories)
+   - ID SELECTOR DEMONSTRATION: #categories
+   - CSS GRID DEMONSTRATION (display: grid, grid-template-columns)
+   ========================================================================== */
+
+#categories {
+  padding: 5rem 0;
+  background-color: var(--white);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+/* PSEUDO-ELEMENT DEMONSTRATION: Section underline divider */
+.section-title {
+  position: relative;
+  font-size: 2.2rem;
+  color: var(--dark-blue);
+  margin-bottom: 0.85rem;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';             /* PSEUDO-ELEMENT: Decorative accent line */
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent-yellow);
+  margin: 0.5rem auto 0 auto;
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* CSS GRID DEMONSTRATION: 4-Column Category Grid */
+.category-grid {
+  display: grid;                              /* CSS GRID: Grid layout */
+  grid-template-columns: repeat(4, 1fr);     /* CSS GRID: 4 equal columns */
+  gap: 1.5rem;                                /* CSS GRID: Grid gap */
+}
+
+.category-card {
+  background-color: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.category-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-blue);
+  background-color: var(--white);
+}
+
+.category-icon {
+  font-size: 2.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.category-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: var(--dark-blue);
+}
+
+.category-card p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   6. EVENT CATALOGUE SECTION (#events)
+   - ID SELECTOR DEMONSTRATION: #events
+   - BOX MODEL DEMONSTRATION (content, padding, border, margin)
+   - CSS GRID DEMONSTRATION (2x2 grid)
+   - POSITIONING DEMONSTRATION (relative & absolute)
+   ========================================================================== */
+
+#events {
+  padding: 5rem 0;
+  background-color: var(--light-bg);
+}
+
+/* CSS GRID DEMONSTRATION: 2-Column Event Catalogue Grid */
+.event-grid {
+  display: grid;                            /* CSS GRID: Grid layout */
+  grid-template-columns: repeat(2, 1fr);   /* CSS GRID: 2 columns for event cards */
+  gap: 2rem;                                /* CSS GRID: Gap between cards */
+}
+
+/* BOX MODEL DEMONSTRATION: Detailed breakdown on .event-card */
+.event-card {
+  position: relative;              /* POSITIONING: Relative parent for absolute badge */
+  background-color: var(--white);  /* BOX MODEL: Background */
+  border-radius: var(--radius-md); 
+  
+  /* BOX MODEL DEMONSTRATION COMPONENTS: */
+  width: 100%;                     /* BOX MODEL: Content width */
+  padding: 2rem;                   /* BOX MODEL: Internal Padding (2rem all around) */
+  border: 1px solid var(--border-color); /* BOX MODEL: Outer Border */
+  margin-bottom: 0;                /* BOX MODEL: External Margin handled by Grid Gap */
+  
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-fast);
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-blue);
+}
+
+.category-tag {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.28rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.cultural-tag {
+  background-color: #fce7f3;
+  color: #9d174d;
+}
+
+.sports-tag {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.placement-tag {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.event-card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 1rem;
+  color: var(--dark-blue);
+}
+
+.event-details {
+  list-style: none;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.event-details li {
+  font-size: 0.92rem;
+  color: var(--text-dark);
+  margin-bottom: 0.4rem;
+}
+
+.event-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.event-card-action {
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   7. REGISTRATION FORM SECTION (#register)
+   - ID SELECTOR DEMONSTRATION: #register
+   - ATTRIBUTE SELECTOR DEMONSTRATION
+   - REQUIRED ATTRIBUTE SELECTOR DEMONSTRATION
+   - PSEUDO-CLASS DEMONSTRATION (:focus, :focus-visible)
+   - FLEXBOX DEMONSTRATION (Form rows)
+   ========================================================================== */
+
+#register {
+  padding: 5rem 0;
+  background-color: var(--white);
+}
+
+.form-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--light-bg);
+  padding: 3rem 2.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* FLEXBOX DEMONSTRATION: Form row with 2 inputs side by side */
+.form-row {
+  display: flex;           /* FLEXBOX: Flex layout for form inputs */
+  gap: 1.5rem;             /* FLEXBOX: Gap between fields */
+}
+
+.form-group {
+  flex: 1;                 /* FLEXBOX: Equal width inputs */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--dark-blue);
+}
+
+.required-star {
+  color: #ef4444;
+}
+
+/* 2.7 ATTRIBUTE SELECTOR DEMONSTRATION: Targeting text and email inputs */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: inherit;
+  font-size: 0.98rem;
+  color: var(--text-dark);
+  background-color: var(--white);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+/* 2.8 REQUIRED ATTRIBUTE SELECTOR DEMONSTRATION: Targeting elements with required attribute */
+input[required],
+select[required] {
+  border-left: 4px solid var(--primary-blue); /* Distinct left border for required elements */
+}
+
+/* 2.9 PSEUDO-CLASS SELECTOR DEMONSTRATION: Input focus state */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(7, 91, 157, 0.2);
+  background-color: #ffffff;
+}
+
+/* ACCESSIBILITY: Visible Focus styles */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--accent-yellow);
+  outline-offset: 2px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.form-action {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* ==========================================================================
+   8. FLOAT & CLEAR DEMONSTRATION SECTION
+   - Mandatory Assessment Requirement: Explicit demonstration of float & clear
+   ========================================================================== */
+
+.demo-section {
+  padding: 3.5rem 0;
+  background-color: #eef6ff;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.demo-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.demo-card h3 {
+  margin-bottom: 1.25rem;
+  color: var(--dark-blue);
+}
+
+.float-demo-container {
+  background-color: var(--light-bg);
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.5rem;
+}
+
+/* FLOAT DEMONSTRATION: float: left */
+.float-box {
+  float: left;                    /* FLOAT DEMONSTRATION */
+  width: 90px;
+  height: 70px;
+  background-color: var(--accent-yellow);
+  color: var(--dark-blue);
+  font-weight: 800;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 18px;             /* Spacing for text flow */
+  margin-bottom: 10px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+
+/* CLEAR DEMONSTRATION: clear: both */
+.clear-fix {
+  clear: both;                   /* CLEAR DEMONSTRATION */
+  margin-top: 10px;
+}
+
+.clear-demo-text {
+  padding-top: 10px;
+  border-top: 1px dashed var(--border-color);
+  color: var(--dark-blue);
+}
+
+/* BOX MODEL DEMONSTRATION: Standard content-box element */
+.content-box-demo-container {
+  margin-top: 1.5rem;
+}
+
+.content-box-demo-container h4 {
+  margin-bottom: 0.75rem;
+  color: var(--dark-blue);
+}
+
+.content-box-demo {
+  box-sizing: content-box;       /* BOX MODEL DEMONSTRATION: content-box behavior */
+  width: 100%;
+  padding: 15px;
+  border: 3px solid var(--primary-blue);
+  background-color: #f0fdf4;
+  margin-top: 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #166534;
+}
+
+/* ==========================================================================
+   9. CONTACT SECTION (#contact)
+   - ID SELECTOR DEMONSTRATION: #contact
+   - FLEXBOX DEMONSTRATION
+   - DESCENDANT SELECTOR DEMONSTRATION (.contact-card p)
+   ========================================================================== */
+
+#contact {
+  padding: 5rem 0;
+  background-color: var(--white);
+}
+
+/* FLEXBOX DEMONSTRATION: Contact cards grid using Flexbox */
+.contact-grid {
+  display: flex;                 /* FLEXBOX: Horizontal layout for contact cards */
+  justify-content: space-between;
+  gap: 1.75rem;
+}
+
+.contact-card {
+  flex: 1;                       /* FLEXBOX: Equal width column distribution */
+  background-color: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-card h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.85rem;
+  color: var(--dark-blue);
+}
+
+/* 2.5 DESCENDANT SELECTOR DEMONSTRATION: .contact-card p */
+.contact-card p {
+  font-size: 0.92rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+/* ==========================================================================
+   10. FOOTER SECTION
+   - CSS GRID DEMONSTRATION (3-column layout)
+   - CHILD SELECTOR DEMONSTRATION (.footer-links > a)
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  padding: 4rem 0 2rem 0;
+  margin-top: auto;
+}
+
+/* CSS GRID DEMONSTRATION: 3-Column Footer Grid */
+.footer-grid {
+  display: grid;                             /* CSS GRID: Grid layout */
+  grid-template-columns: 2fr 1fr 1.5fr;     /* CSS GRID: 3 uneven columns */
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-col h3 {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-col h4 {
+  color: var(--accent-yellow);
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.footer-tagline {
+  color: var(--accent-yellow);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-desc {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+/* 2.6 CHILD SELECTOR DEMONSTRATION: Direct child link of .footer-links */
+.footer-links > a {
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-links > a:hover {
+  color: var(--accent-yellow);
+  padding-left: 4px; /* Subtle hover slide */
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 0.88rem;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   11. POSITIONING DEMONSTRATION: position: fixed (Floating Help Button)
+   ========================================================================== */
+
+/* POSITIONING DEMONSTRATION: position: fixed at bottom right */
+.floating-help {
+  position: fixed;            /* POSITIONING: Fixed button pinned to viewport */
+  bottom: 25px;
+  right: 25px;
+  z-index: 999;               /* POSITIONING: Highest z-index to stay above everything */
+  background-color: var(--accent-yellow);
+  color: var(--dark-blue);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-fast);
+}
+
+.floating-help:hover {
+  transform: scale(1.08);
+  background-color: var(--white);
+  color: var(--primary-blue);
+}
+
+/* ==========================================================================
+   12. RESPONSIVE DESIGN - MEDIA QUERIES
+   - Breakpoint 1: max-width 900px (Tablets)
+   - Breakpoint 2: max-width 600px (Mobile Devices)
+   - Breakpoint 3: max-width 375px (Small Mobile Devices)
+   ========================================================================== */
+
+/* RESPONSIVE BREAKPOINT 1: Tablets & Medium Devices (<= 900px) */
+@media screen and (max-width: 900px) {
+  
+  /* Category Cards Grid becomes 2 columns */
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Hero Section stacks vertically */
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    flex: 1 1 100%;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-card-wrapper {
+    width: 100%;
+  }
+
+  /* Contact cards vertical stack */
+  .contact-grid {
+    flex-direction: column;
+  }
+
+  /* Footer grid layout adjustments */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* RESPONSIVE BREAKPOINT 2: Mobile Devices (<= 600px) */
+@media screen and (max-width: 600px) {
+
+  /* Navigation bar converts to vertical wrapped flow */
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Main Headings scale down */
+  .hero-content > h1 {
+    font-size: 2rem;
+  }
+
+  /* All Grids collapse to 1 single column */
+  .category-grid,
+  .event-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Form rows collapse to vertical single inputs */
+  .form-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-wrapper {
+    padding: 2rem 1.25rem;
+  }
+
+  /* Buttons expand to fill screen */
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .floating-help span {
+    display: none; /* Hide button text on small screens, keep icon */
+  }
+
+  .floating-help {
+    padding: 0.85rem;
+    border-radius: 50%;
+  }
+}
+
+/* RESPONSIVE BREAKPOINT 3: Small Mobile Devices (<= 375px) */
+@media screen and (max-width: 375px) {
+  
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-content > h1 {
+    font-size: 1.7rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .event-card {
+    padding: 1.25rem;
+  }
+
+  .badge-open {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+  }
+}

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Event Registration Portal</title>
+  
+  <!-- EXTERNAL CSS LINKING -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- INTERNAL CSS DEMONSTRATION -->
+  <!-- Requirement 2.A.2: Clearly identifiable internal <style> section for viva assessment -->
+  <style>
+    /* INTERNAL CSS DEMONSTRATION */
+    .internal-notice-banner {
+      background-color: #ffb703;
+      color: #073b63;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border-bottom: 2px solid #075b9d;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- INTERNAL CSS DEMONSTRATED HERE -->
+  <div class="internal-notice-banner">
+    📌 <strong>Notice:</strong> Online Event Registration for Academic Session 2026 is currently OPEN!
+  </div>
+
+  <!-- HEADER & NAVIGATION -->
+  <!-- POSITIONING DEMONSTRATION: Sticky header -->
+  <header class="site-header" id="top">
+    <!-- FLEXBOX DEMONSTRATION: Navbar container -->
+    <div class="nav-container">
+      <div class="logo">
+        <span class="logo-icon">🏛️</span>
+        <div class="logo-text">
+          <span class="logo-title">SIMATS University</span>
+          <span class="logo-subtitle">Event Portal 2026</span>
+        </div>
+      </div>
+      
+      <!-- NAV & NAV-LINKS -->
+      <nav aria-label="Main Navigation">
+        <!-- FLEXBOX DEMONSTRATION: Navigation list -->
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#register">Register</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- SECTION A / B: HERO SECTION -->
+    <!-- ID SELECTOR: #home -->
+    <section class="hero-section" id="home">
+      <!-- POSITIONING DEMONSTRATION: Relative wrapper -->
+      <div class="hero-container">
+        
+        <div class="hero-content">
+          <!-- SUBTITLE -->
+          <span class="hero-tag">UNIVERSITY EVENTS 2026</span>
+          
+          <!-- MAIN HEADING -->
+          <!-- CHILD SELECTOR TARGET: .hero-content > h1 -->
+          <h1>Discover. Participate. Achieve.</h1>
+          
+          <!-- SHORT REGISTRATION MESSAGE -->
+          <p class="hero-description">
+            Welcome to the official SIMATS University Event Portal! Explore premier technical hackathons, cultural extravaganzas, sports meets, and career placement drives. Unleash your potential today.
+          </p>
+
+          <!-- CALL-TO-ACTION BUTTONS -->
+          <!-- FLEXBOX DEMONSTRATION: Hero button group -->
+          <div class="hero-buttons">
+            <a href="#events" class="btn btn-primary">Explore Events</a>
+            <a href="#register" class="btn btn-secondary">Register Now</a>
+          </div>
+        </div>
+
+        <!-- HERO IMAGE & POSITIONING DEMO -->
+        <div class="hero-card-wrapper">
+          <!-- POSITIONING DEMONSTRATION: Relative image card container -->
+          <div class="hero-card">
+            <!-- POSITIONING DEMONSTRATION: Absolute badge -->
+            <span class="badge-open">Registration Open</span>
+            <div class="hero-card-icon">🎓</div>
+            <h3>SIMATS Grand Fest 2026</h3>
+            <p>Annual flagship campus gathering for students across all departments.</p>
+            <div class="hero-card-stats">
+              <div><strong>4+</strong> Major Events</div>
+              <div><strong>1000+</strong> Participants</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION C: EVENT CATEGORIES -->
+    <!-- ID SELECTOR: #categories -->
+    <section class="categories-section" id="categories">
+      <div class="container">
+        <div class="section-header">
+          <!-- PSEUDO-ELEMENT DEMONSTRATION: ::after line effect -->
+          <h2 class="section-title">Event Categories</h2>
+          <p class="section-subtitle">Choose from a diverse range of university activities crafted for overall development.</p>
+        </div>
+
+        <!-- CSS GRID DEMONSTRATION: Category Grid -->
+        <div class="category-grid">
+          
+          <!-- Category 1: Technical -->
+          <div class="category-card">
+            <div class="category-icon">💻</div>
+            <h3>Technical</h3>
+            <p>Coding hackathons, web development sprints, AI workshops, and paper presentations.</p>
+          </div>
+
+          <!-- Category 2: Cultural -->
+          <div class="category-card">
+            <div class="category-icon">🎭</div>
+            <h3>Cultural</h3>
+            <p>Music fests, dance choreography battles, drama showcases, and fine arts exhibitions.</p>
+          </div>
+
+          <!-- Category 3: Sports -->
+          <div class="category-card">
+            <div class="category-icon">⚽</div>
+            <h3>Sports</h3>
+            <p>Inter-college tournaments in cricket, football, volleyball, athletics, and indoor games.</p>
+          </div>
+
+          <!-- Category 4: Placement -->
+          <div class="category-card">
+            <div class="category-icon">💼</div>
+            <h3>Placement</h3>
+            <p>Career readiness workshops, resume building sessions, GD training, and recruiter interactions.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION D: EVENT CATALOGUE -->
+    <!-- ID SELECTOR: #events -->
+    <section class="events-section" id="events">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Upcoming University Events</h2>
+          <p class="section-subtitle">Select an event below and secure your participation instantly.</p>
+        </div>
+
+        <!-- CSS GRID DEMONSTRATION: 2x2 Event catalogue grid -->
+        <div class="event-grid">
+
+          <!-- EVENT CARD 1: TECHNICAL -->
+          <!-- CLASS SELECTOR & BOX MODEL DEMONSTRATION -->
+          <article class="event-card">
+            <!-- POSITIONING DEMONSTRATION: Absolute status badge -->
+            <span class="badge-open">Registration Open</span>
+            <span class="category-tag tech-tag">Technical</span>
+            <h3>ScrapeVerse Hackathon</h3>
+            
+            <ul class="event-details">
+              <li>📅 <strong>Date:</strong> 20 August 2026</li>
+              <li>⏰ <strong>Time:</strong> 9:00 AM - 5:00 PM</li>
+              <li>📍 <strong>Venue:</strong> Innovation Lab</li>
+            </ul>
+
+            <p class="event-description">
+              Build innovative web and software solutions during an intensive day of coding and real-world problem solving. Compete for prizes and mentorship!
+            </p>
+
+            <div class="event-card-action">
+              <a href="#register" class="btn btn-primary btn-full">Register Now</a>
+            </div>
+          </article>
+
+          <!-- EVENT CARD 2: CULTURAL -->
+          <article class="event-card">
+            <span class="badge-open">Registration Open</span>
+            <span class="category-tag cultural-tag">Cultural</span>
+            <h3>SIMATS Cultural Fest</h3>
+            
+            <ul class="event-details">
+              <li>📅 <strong>Date:</strong> 25 August 2026</li>
+              <li>⏰ <strong>Time:</strong> 10:00 AM - 7:00 PM</li>
+              <li>📍 <strong>Venue:</strong> University Auditorium</li>
+            </ul>
+
+            <p class="event-description">
+              A vibrant celebration of music, dance routines, theatrical acts, and fashion shows. Join fellow students for an unforgettable cultural experience.
+            </p>
+
+            <div class="event-card-action">
+              <a href="#register" class="btn btn-primary btn-full">Register Now</a>
+            </div>
+          </article>
+
+          <!-- EVENT CARD 3: SPORTS -->
+          <article class="event-card">
+            <span class="badge-open">Registration Open</span>
+            <span class="category-tag sports-tag">Sports</span>
+            <h3>Inter College Sports Meet</h3>
+            
+            <ul class="event-details">
+              <li>📅 <strong>Date:</strong> 28 August 2026</li>
+              <li>⏰ <strong>Time:</strong> 8:00 AM - 6:00 PM</li>
+              <li>📍 <strong>Venue:</strong> University Sports Ground</li>
+            </ul>
+
+            <p class="event-description">
+              Showcase athletic prowess across cricket, football, volleyball, and track events. Compete with top college teams for championship trophies.
+            </p>
+
+            <div class="event-card-action">
+              <a href="#register" class="btn btn-primary btn-full">Register Now</a>
+            </div>
+          </article>
+
+          <!-- EVENT CARD 4: PLACEMENT -->
+          <article class="event-card">
+            <span class="badge-open">Registration Open</span>
+            <span class="category-tag placement-tag">Placement</span>
+            <h3>Career & Placement Workshop</h3>
+            
+            <ul class="event-details">
+              <li>📅 <strong>Date:</strong> 30 August 2026</li>
+              <li>⏰ <strong>Time:</strong> 10:00 AM - 1:00 PM</li>
+              <li>📍 <strong>Venue:</strong> Seminar Hall</li>
+            </ul>
+
+            <p class="event-description">
+              Prepare for upcoming campus drives with expert guidance on resume engineering, mock HR interviews, group discussion tactics, and career planning.
+            </p>
+
+            <div class="event-card-action">
+              <a href="#register" class="btn btn-primary btn-full">Register Now</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION E: REGISTRATION FORM -->
+    <!-- ID SELECTOR: #register -->
+    <section class="register-section" id="register">
+      <div class="container">
+        <div class="form-wrapper">
+          <div class="section-header">
+            <h2 class="section-title">Student Event Registration</h2>
+            <p class="section-subtitle">Fill out the form below to confirm your seat for university events.</p>
+          </div>
+
+          <!-- ACCESSIBLE FORM -->
+          <form class="registration-form" action="#" method="post">
+            
+            <!-- FLEXBOX DEMONSTRATION: Form row grouping -->
+            <div class="form-row">
+              <div class="form-group">
+                <!-- ACCESSIBILITY: Label with for attribute -->
+                <label for="student-name">Student Name <span class="required-star">*</span></label>
+                <!-- ATTRIBUTE & REQUIRED SELECTOR TARGET -->
+                <input type="text" id="student-name" name="student_name" required placeholder="e.g. John Doe">
+              </div>
+
+              <div class="form-group">
+                <label for="register-number">Register Number <span class="required-star">*</span></label>
+                <!-- ATTRIBUTE & REQUIRED SELECTOR TARGET -->
+                <input type="text" id="register-number" name="register_number" required placeholder="e.g. 2026UET1042">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="department">Department <span class="required-star">*</span></label>
+                <!-- REQUIRED ATTRIBUTE SELECTOR TARGET -->
+                <select id="department" name="department" required>
+                  <option value="" disabled selected>-- Select Department --</option>
+                  <option value="CSE">Computer Science & Engineering</option>
+                  <option value="IT">Information Technology</option>
+                  <option value="ECE">Electronics & Communication</option>
+                  <option value="EEE">Electrical & Electronics</option>
+                  <option value="MECH">Mechanical Engineering</option>
+                  <option value="CIVIL">Civil Engineering</option>
+                  <option value="BIOTECH">Biotechnology</option>
+                  <option value="MANAGEMENT">Management Studies</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="student-email">Email Address <span class="required-star">*</span></label>
+                <!-- ATTRIBUTE & REQUIRED SELECTOR TARGET -->
+                <input type="email" id="student-email" name="student_email" required placeholder="e.g. student@simats.edu">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="select-event">Select Event <span class="required-star">*</span></label>
+              <select id="select-event" name="select_event" required>
+                <option value="" disabled selected>-- Choose Event --</option>
+                <option value="hackathon">ScrapeVerse Hackathon (Technical - 20 Aug)</option>
+                <option value="cultural">SIMATS Cultural Fest (Cultural - 25 Aug)</option>
+                <option value="sports">Inter College Sports Meet (Sports - 28 Aug)</option>
+                <option value="placement">Career & Placement Workshop (Placement - 30 Aug)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="additional-message">Additional Message / Special Requirements</label>
+              <textarea id="additional-message" name="additional_message" rows="4" placeholder="Mention team details, dietary preferences, or specific queries..."></textarea>
+            </div>
+
+            <div class="form-action">
+              <button type="submit" class="btn btn-primary btn-large">Submit Registration</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION G (CONCEPT DEMO): FLOAT AND CLEAR DEMONSTRATION SECTION -->
+    <!-- Mandatory CSS Assessment Requirement: Explicit demonstration of float and clear -->
+    <section class="demo-section">
+      <div class="container">
+        <div class="demo-card">
+          <h3>CSS Concept Demonstration: Box Model & Float / Clear</h3>
+          
+          <!-- FLOAT AND CLEAR DEMONSTRATION -->
+          <div class="float-demo-container">
+            <!-- FLOAT: LEFT -->
+            <div class="float-box">
+              CSS
+            </div>
+            <p>
+              <strong>Float Demonstration:</strong> This text block demonstrates text wrapping around a floated element. The yellow badge on the left uses <code>float: left;</code> with right and bottom margins to allow continuous paragraph text to flow smoothly alongside it.
+            </p>
+            <!-- CLEAR: BOTH -->
+            <div class="clear-fix"></div>
+            <p class="clear-demo-text">
+              <strong>Clear Demonstration:</strong> This sentence uses <code>clear: both;</code>. It is strictly forced to render below all preceding floated content, breaking the inline flow cleanly.
+            </p>
+          </div>
+
+          <!-- BOX MODEL CONTENT-BOX DEMONSTRATION -->
+          <div class="content-box-demo-container">
+            <h4>Content-Box vs Border-Box Demonstration</h4>
+            <!-- INLINE CSS DEMONSTRATION -->
+            <!-- Requirement 2.A.3: Inline CSS on one small element with comment -->
+            <p style="background-color: #e0f2fe; padding: 10px; border-left: 4px solid #00a6d6; border-radius: 4px; font-size: 0.9rem;">
+              <!-- INLINE CSS DEMONSTRATION -->
+              ℹ️ <em>Inline CSS Note:</em> Standard elements in this portal use <code>box-sizing: border-box;</code> so padding is included in total width. Below is a special <code>box-sizing: content-box;</code> element for viva explanation.
+            </p>
+
+            <div class="content-box-demo">
+              Standard <code>box-sizing: content-box</code> element (Width = 100% Content + Padding + Border)
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION F: CONTACT SECTION -->
+    <!-- ID SELECTOR: #contact -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Contact Student Affairs</h2>
+          <p class="section-subtitle">Have questions regarding event registrations, guidelines, or venues? Get in touch with us.</p>
+        </div>
+
+        <!-- FLEXBOX DEMONSTRATION: Contact cards container -->
+        <div class="contact-grid">
+          
+          <!-- Contact 1: Email -->
+          <div class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h4>Email Us</h4>
+            <!-- DESCENDANT SELECTOR TARGET: .contact-card p -->
+            <p><a href="mailto:studentaffairs@simats.edu">studentaffairs@simats.edu</a></p>
+            <p><a href="mailto:events@simats.edu">events@simats.edu</a></p>
+          </div>
+
+          <!-- Contact 2: Phone -->
+          <div class="contact-card">
+            <div class="contact-icon">📞</div>
+            <h4>Call Student Helpline</h4>
+            <p><a href="tel:+914426801234">+91 (044) 2680-1234</a></p>
+            <p><a href="tel:+914426805678">+91 (044) 2680-5678</a></p>
+          </div>
+
+          <!-- Contact 3: Campus Address -->
+          <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h4>Campus Address</h4>
+            <p>SIMATS University Campus,<br>Saveetha Nagar, Poonamallee,<br>Chennai - 600124, Tamil Nadu</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER SECTION -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <!-- CSS GRID DEMONSTRATION: Footer grid layout -->
+      <div class="footer-grid">
+        
+        <!-- Footer Column 1: Info -->
+        <div class="footer-col">
+          <h3>SIMATS Event Portal</h3>
+          <p class="footer-tagline">Learn. Participate. Achieve.</p>
+          <p class="footer-desc">Empowering students through innovation, culture, athleticism, and professional achievement.</p>
+        </div>
+
+        <!-- Footer Column 2: Quick Links -->
+        <div class="footer-col">
+          <h4>Quick Navigation</h4>
+          <!-- CHILD SELECTOR TARGET: .footer-links > a -->
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#events">Events</a>
+            <a href="#register">Register</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <!-- Footer Column 3: Student Portal & Links -->
+        <div class="footer-col">
+          <h4>Student Resources</h4>
+          <div class="footer-links">
+            <a href="https://simats.edu" target="_blank" rel="noopener">Official University Website</a>
+            <a href="#register">Student Portal Login</a>
+            <a href="#events">Event Guidelines & Rules</a>
+            <a href="#contact">Student Affairs Desk</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 SIMATS University Event Registration Portal. All Rights Reserved | Web Technology Assessment Project</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- POSITIONING DEMONSTRATION: Fixed floating help button -->
+  <!-- ACCESSIBILITY: aria-label for non-text action -->
+  <a href="#contact" class="floating-help" aria-label="Help and Support">
+    💬 <span>Help Desk</span>
+  </a>
+
+</body>
+</html>

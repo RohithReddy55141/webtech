@@ -1,0 +1,644 @@
+/* SIMATS Web Application Master Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --simats-navy: #0F172A;
+  --simats-deep-blue: #1E3A8A;
+  --simats-accent-blue: #2563EB;
+  --simats-gold: #F59E0B;
+  --simats-gold-light: #FBBF24;
+  --simats-gold-dark: #D97706;
+  --bg-dark: #090D16;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --bg-card-hover: rgba(30, 41, 59, 0.85);
+  --border-color: rgba(245, 158, 11, 0.25);
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --pass-color: #10B981;
+  --fail-color: #EF4444;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --shadow-glow: 0 0 25px rgba(245, 158, 11, 0.15);
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.3) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.15) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.9) 0px, transparent 100%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Header & Banner */
+.simats-header {
+  background: linear-gradient(135deg, #090D16 0%, #1E3A8A 50%, #0F172A 100%);
+  border-bottom: 2px solid var(--simats-gold);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.simats-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.brand-logo-badge {
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, var(--simats-gold-light), var(--simats-gold-dark));
+  color: #0F172A;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+  letter-spacing: 1px;
+}
+
+.brand-text h1 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+}
+
+.brand-text p {
+  color: var(--simats-gold);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Tabs Navigation */
+.tab-navigation {
+  display: flex;
+  gap: 0.75rem;
+  background: rgba(15, 23, 42, 0.6);
+  padding: 0.4rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tab-btn:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--simats-gold), var(--simats-gold-dark));
+  color: #0F172A;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+/* Main Layout Container */
+.main-container {
+  max-width: 1200px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Card Sections & Layouts */
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .section-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-glow);
+}
+
+.panel-header {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.panel-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.badge-tag {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--simats-gold);
+  border: 1px solid var(--simats-gold);
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Form Controls */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(9, 13, 22, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--simats-gold);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+  background: rgba(15, 23, 42, 0.9);
+}
+
+.form-control::placeholder {
+  color: rgba(148, 163, 184, 0.5);
+}
+
+select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F59E0B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.1em;
+}
+
+/* Action Buttons */
+.btn-primary {
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background: linear-gradient(135deg, var(--simats-gold), var(--simats-gold-dark));
+  color: #0F172A;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+  background: linear-gradient(135deg, var(--simats-gold-light), var(--simats-gold));
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, var(--simats-deep-blue), var(--simats-accent-blue));
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+/* Generated Student Card (DOM Part 1) */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-height: 200px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  border: 2px dashed rgba(245, 158, 11, 0.2);
+  border-radius: var(--radius-md);
+  background: rgba(9, 13, 22, 0.4);
+}
+
+.empty-state svg {
+  width: 48px;
+  height: 48px;
+  stroke: var(--simats-gold);
+  opacity: 0.6;
+  margin-bottom: 0.75rem;
+}
+
+.student-id-card {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  border: 1.5px solid var(--simats-gold);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  animation: cardPopIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes cardPopIn {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.card-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.card-institution {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--simats-gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.card-body {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.card-avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--simats-deep-blue), var(--simats-gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  border: 2px solid var(--simats-gold);
+  flex-shrink: 0;
+}
+
+.card-details {
+  flex-grow: 1;
+}
+
+.card-name {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+}
+
+.card-reg-no {
+  display: inline-block;
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--simats-gold);
+  font-family: monospace;
+  font-size: 0.85rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.card-meta-item span {
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.card-footer {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-remove {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--fail-color);
+  border: 1px solid var(--fail-color);
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.btn-remove:hover {
+  background: var(--fail-color);
+  color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+}
+
+/* Servlet Result Report Styles (Part 2 Dynamic Render) */
+.report-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  border: 2px solid var(--simats-gold);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-glow);
+}
+
+.report-header {
+  text-align: center;
+  border-bottom: 2px solid rgba(245, 158, 11, 0.3);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.report-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: #FFFFFF;
+  margin-bottom: 0.25rem;
+}
+
+.report-header p {
+  color: var(--simats-gold);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.student-info-strip {
+  background: rgba(9, 13, 22, 0.7);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.info-item {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.info-item strong {
+  color: #FFFFFF;
+  margin-left: 0.5rem;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+.results-table th, .results-table td {
+  padding: 0.9rem 1.2rem;
+  text-align: left;
+}
+
+.results-table th {
+  background: rgba(30, 58, 138, 0.6);
+  color: var(--simats-gold);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--simats-gold);
+}
+
+.results-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.95rem;
+}
+
+.results-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 700px) {
+  .results-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.summary-box {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.summary-box.highlight {
+  border-color: var(--simats-gold);
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.summary-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.4rem;
+}
+
+.summary-value {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.badge-pass {
+  color: var(--pass-color);
+}
+
+.badge-fail {
+  color: var(--fail-color);
+}
+
+.status-banner {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.status-banner.pass {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--pass-color);
+  border: 1.5px solid var(--pass-color);
+}
+
+.status-banner.fail {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--fail-color);
+  border: 1.5px solid var(--fail-color);
+}
+
+.back-link-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.back-link-btn:hover {
+  background: var(--simats-gold);
+  color: #0F172A;
+}
+
+/* Technical Specification Info Box */
+.tech-spec-box {
+  background: rgba(15, 23, 42, 0.8);
+  border-left: 4px solid var(--simats-gold);
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.tech-spec-box code {
+  color: var(--simats-gold);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}

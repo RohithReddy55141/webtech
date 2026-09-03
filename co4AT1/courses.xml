@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="courses.xsl"?>
+<courses>
+
+    <course id="C101">
+        <code>WEB301</code>
+        <name>Web Technology</name>
+        <faculty>Dr. Arun</faculty>
+        <students>58</students>
+        <capacity>60</capacity>
+        <credits>4</credits>
+        <type>Theory</type>
+        <department>Computer Science</department>
+        <rating>4.9</rating>
+        <semester>Spring 2026</semester>
+        <prerequisites>HTML5, CSS3, JavaScript ES6</prerequisites>
+    </course>
+
+    <course id="C102">
+        <code>AI302</code>
+        <name>Artificial Intelligence</name>
+        <faculty>Dr. Meena</faculty>
+        <students>72</students>
+        <capacity>80</capacity>
+        <credits>4</credits>
+        <type>Theory</type>
+        <department>AI &amp; Data Science</department>
+        <rating>4.85</rating>
+        <semester>Spring 2026</semester>
+        <prerequisites>Python, Data Structures &amp; Algorithms</prerequisites>
+    </course>
+
+    <course id="C103">
+        <code>WEB303</code>
+        <name>Web Technology Laboratory</name>
+        <faculty>Dr. Ravi</faculty>
+        <students>36</students>
+        <capacity>40</capacity>
+        <credits>2</credits>
+        <type>Practical</type>
+        <department>Computer Science</department>
+        <rating>4.75</rating>
+        <semester>Spring 2026</semester>
+        <prerequisites>WEB301 (Co-requisite)</prerequisites>
+    </course>
+
+    <course id="C104">
+        <code>ML304</code>
+        <name>Machine Learning</name>
+        <faculty>Dr. Priya</faculty>
+        <students>64</students>
+        <capacity>70</capacity>
+        <credits>4</credits>
+        <type>Theory</type>
+        <department>AI &amp; Data Science</department>
+        <rating>4.92</rating>
+        <semester>Spring 2026</semester>
+        <prerequisites>Linear Algebra, Probability &amp; Statistics</prerequisites>
+    </course>
+
+    <course id="C105">
+        <code>DB305</code>
+        <name>Database Systems</name>
+        <faculty>Dr. Kumar</faculty>
+        <students>42</students>
+        <capacity>50</capacity>
+        <credits>3</credits>
+        <type>Theory</type>
+        <department>Information Technology</department>
+        <rating>4.65</rating>
+        <semester>Spring 2026</semester>
+        <prerequisites>Discrete Mathematics, Data Structures</prerequisites>
+    </course>
+
+</courses>

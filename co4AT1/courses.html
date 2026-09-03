@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMATS - Question 1: Interpret XML Structure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --accent: #f59e0b;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --code-bg: #020617;
+            --success: #10b981;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text-main); line-height: 1.6; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        
+        .nav-bar { display: flex; gap: 10px; margin-bottom: 25px; background: var(--card-bg); padding: 12px; border-radius: 12px; border: 1px solid var(--card-border); flex-wrap: wrap; }
+        .nav-btn { text-decoration: none; color: var(--text-muted); padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 500; transition: all 0.2s; }
+        .nav-btn:hover, .nav-btn.active { background: var(--primary-light); color: #fff; }
+
+        header { background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); padding: 30px; border-radius: 16px; border: 1px solid var(--card-border); margin-bottom: 25px; text-align: center; }
+        header h1 { font-size: 1.8rem; color: #fff; margin-bottom: 6px; }
+        header h2 { font-size: 1.1rem; color: var(--accent); font-weight: 500; margin-bottom: 12px; }
+        .tag { display: inline-block; background: rgba(59, 130, 246, 0.2); color: #60a5fa; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; border: 1px solid rgba(96, 165, 250, 0.3); }
+
+        .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 25px; margin-bottom: 25px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3); }
+        .card h3 { font-size: 1.3rem; color: #60a5fa; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .card h3 span { background: var(--primary); color: #fff; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+
+        .qa-group { margin-top: 15px; }
+        .q-title { font-weight: 600; color: #e2e8f0; font-size: 1.05rem; margin-bottom: 8px; }
+        .ans-box { background: rgba(15, 23, 42, 0.6); border-left: 4px solid var(--primary-light); padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 20px; font-size: 0.95rem; }
+        .ans-box strong { color: var(--accent); }
+        .explanation { font-size: 0.88rem; color: var(--text-muted); margin-top: 6px; }
+
+        .code-block { background: var(--code-bg); padding: 16px; border-radius: 10px; font-family: 'Fira Code', monospace; font-size: 0.88rem; overflow-x: auto; color: #a5f3fc; border: 1px solid #1e293b; margin-top: 10px; }
+
+        .badge-list { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+        .badge { background: #1e293b; border: 1px solid #3b82f6; color: #93c5fd; padding: 4px 10px; border-radius: 6px; font-family: 'Fira Code', monospace; font-size: 0.85rem; }
+
+        .justification-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 15px; }
+        .j-card { background: rgba(15, 23, 42, 0.8); border: 1px solid var(--card-border); padding: 15px; border-radius: 10px; }
+        .j-card h4 { color: var(--success); font-size: 0.95rem; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+        .j-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+        footer { text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-btn">Hub</a>
+        <a href="Question1.html" class="nav-btn active">Q1: XML Structure</a>
+        <a href="Question2.html" class="nav-btn">Q2: XPath Selection</a>
+        <a href="Question3.html" class="nav-btn">Q3: XSLT Presentation</a>
+        <a href="Question4.html" class="nav-btn">Q4: Data Interpretation</a>
+    </nav>
+
+    <header>
+        <h1>SAVEETHA INSTITUTE OF MEDICAL AND TECHNICAL SCIENCES</h1>
+        <h2>Department of Computer Science & Engineering</h2>
+        <span class="tag">CO4 AT1 - Question 1: Interpret the XML Structure</span>
+    </header>
+
+    <div class="card">
+        <h3><span>XML</span> Source Dataset (`courses.xml`)</h3>
+        <div class="code-block">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;courses&gt;
+    &lt;course id="C101"&gt;
+        &lt;code&gt;WEB301&lt;/code&gt;
+        &lt;name&gt;Web Technology&lt;/name&gt;
+        &lt;faculty&gt;Dr. A. Sharma&lt;/faculty&gt;
+        &lt;students&gt;45&lt;/students&gt;
+        &lt;credits&gt;4&lt;/credits&gt;
+        &lt;type&gt;Theory&lt;/type&gt;
+    &lt;/course&gt;
+    &lt;!-- Additional &lt;course&gt; entries C102 to C105 --&gt;
+&lt;/courses&gt;
+        </div>
+    </div>
+
+    <div class="card">
+        <h3><span>Q1</span> Questions &amp; Solutions</h3>
+
+        <div class="qa-group">
+            <div class="q-title">a. Identify the root element:</div>
+            <div class="ans-box">
+                The root element of the XML document is <strong>&lt;courses&gt;</strong>.
+                <div class="explanation">The root element is the single top-level parent container encapsulating all child elements in the document.</div>
+            </div>
+
+            <div class="q-title">b. Identify the repeating record element:</div>
+            <div class="ans-box">
+                The repeating record element is <strong>&lt;course&gt;</strong> (with attributes like <code>id="C101"</code>).
+                <div class="explanation">Each course entity is represented by an individual <code>&lt;course&gt;</code> element node repeated under <code>&lt;courses&gt;</code>.</div>
+            </div>
+
+            <div class="q-title">c. Identify the attribute used to uniquely identify each course:</div>
+            <div class="ans-box">
+                The attribute used to uniquely identify each course is <strong>id</strong> (e.g., <code>id="C101"</code>, <code>id="C102"</code>, etc.).
+                <div class="explanation">Attributes reside within the opening tag of an element. Here, <code>id</code> acts as the primary identifier key for each course record.</div>
+            </div>
+
+            <div class="q-title">d. Identify the elements that represent numeric information:</div>
+            <div class="ans-box">
+                The elements representing numeric information are:
+                <div class="badge-list">
+                    <span class="badge">&lt;students&gt;</span>
+                    <span class="badge">&lt;credits&gt;</span>
+                </div>
+                <div class="explanation"><code>&lt;students&gt;</code> contains integer values (e.g., 72, 64, 50, 45, 36) and <code>&lt;credits&gt;</code> holds credit counts (e.g., 4, 3, 2).</div>
+            </div>
+
+            <div class="q-title">e. State whether the XML document is structurally well-formed and justify your answer:</div>
+            <div class="ans-box">
+                <strong>Yes, the XML document is structurally well-formed.</strong>
+                <div class="justification-grid">
+                    <div class="j-card">
+                        <h4>✓ Single Root Element</h4>
+                        <p>All nodes are contained within a single outer <code>&lt;courses&gt;</code> element.</p>
+                    </div>
+                    <div class="j-card">
+                        <h4>✓ Matching Tags</h4>
+                        <p>Every opening tag has a strictly matching closing tag (e.g., <code>&lt;course&gt;...&lt;/course&gt;</code>).</p>
+                    </div>
+                    <div class="j-card">
+                        <h4>✓ Clean Nesting</h4>
+                        <p>Child elements are cleanly nested without overlapping parent/sibling boundaries.</p>
+                    </div>
+                    <div class="j-card">
+                        <h4>✓ Quoted Attributes</h4>
+                        <p>All attribute values (such as <code>id="C101"</code>) are enclosed in double quotes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Saveetha Institute of Medical and Technical Sciences (SIMATS) © 2026 | CO4 AT1 Assignment
+    </footer>
+</div>
+
+</body>
+</html>

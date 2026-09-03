@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Shopping Cart and Billing</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background-color: #f2f5f9;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px gray;
+        }
+
+        h1 {
+            text-align: center;
+            color: #173b7a;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #173b7a;
+            color: white;
+        }
+
+        input {
+            width: 70px;
+            padding: 8px;
+        }
+
+        .summary {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>
+        Product Shopping Cart
+    </h1>
+
+    <p>
+        <b>Student:</b> Rohith Reddy
+    </p>
+
+    <table>
+
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+
+        <tr>
+
+            <td>Laptop</td>
+
+            <td>₹50000</td>
+
+            <td>
+                <input
+                    id="q1"
+                    type="number"
+                    value="0"
+                    min="0"
+                    onchange="calculate()">
+            </td>
+
+            <td id="t1">
+                ₹0
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>Headphones</td>
+
+            <td>₹2000</td>
+
+            <td>
+                <input
+                    id="q2"
+                    type="number"
+                    value="0"
+                    min="0"
+                    onchange="calculate()">
+            </td>
+
+            <td id="t2">
+                ₹0
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>Mouse</td>
+
+            <td>₹1000</td>
+
+            <td>
+                <input
+                    id="q3"
+                    type="number"
+                    value="0"
+                    min="0"
+                    onchange="calculate()">
+            </td>
+
+            <td id="t3">
+                ₹0
+            </td>
+
+        </tr>
+
+    </table>
+
+    <div class="summary">
+
+        <p>
+            Subtotal:
+            ₹<span id="subtotal">0</span>
+        </p>
+
+        <p>
+            Discount (10%):
+            ₹<span id="discount">0</span>
+        </p>
+
+        <p>
+            GST (18%):
+            ₹<span id="gst">0</span>
+        </p>
+
+        <h2>
+            Grand Total:
+            ₹<span id="grand">0</span>
+        </h2>
+
+    </div>
+
+</div>
+
+<script>
+
+function calculate() {
+
+    let laptop =
+        50000 *
+        Number(document.getElementById("q1").value);
+
+    let headphones =
+        2000 *
+        Number(document.getElementById("q2").value);
+
+    let mouse =
+        1000 *
+        Number(document.getElementById("q3").value);
+
+    document.getElementById("t1").innerHTML =
+        "₹" + laptop;
+
+    document.getElementById("t2").innerHTML =
+        "₹" + headphones;
+
+    document.getElementById("t3").innerHTML =
+        "₹" + mouse;
+
+    let subtotal =
+        laptop + headphones + mouse;
+
+    let discount =
+        subtotal * 0.10;
+
+    let afterDiscount =
+        subtotal - discount;
+
+    let gst =
+        afterDiscount * 0.18;
+
+    let grand =
+        afterDiscount + gst;
+
+    document.getElementById("subtotal")
+        .innerHTML =
+        subtotal.toFixed(2);
+
+    document.getElementById("discount")
+        .innerHTML =
+        discount.toFixed(2);
+
+    document.getElementById("gst")
+        .innerHTML =
+        gst.toFixed(2);
+
+    document.getElementById("grand")
+        .innerHTML =
+        grand.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>

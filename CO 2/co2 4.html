@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Student Result Analysis</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background-color: #f2f5f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px gray;
+        }
+
+        h1 {
+            color: #173b7a;
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 15%;
+            margin: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #173b7a;
+            color: white;
+            border: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #173b7a;
+            color: white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Student Result Analysis</h1>
+
+<p>
+<b>Name:</b> Rohith Reddy
+</p>
+
+<p>
+<b>Course:</b> B.Tech Information Technology
+</p>
+
+<input type="number" id="m1" placeholder="Subject 1">
+<input type="number" id="m2" placeholder="Subject 2">
+<input type="number" id="m3" placeholder="Subject 3">
+<input type="number" id="m4" placeholder="Subject 4">
+<input type="number" id="m5" placeholder="Subject 5">
+
+<br><br>
+
+<button onclick="calculateResult()">
+Calculate Result
+</button>
+
+<div id="output"></div>
+
+</div>
+
+<script>
+
+function calculateResult() {
+
+    let marks = [
+
+        Number(document.getElementById("m1").value),
+        Number(document.getElementById("m2").value),
+        Number(document.getElementById("m3").value),
+        Number(document.getElementById("m4").value),
+        Number(document.getElementById("m5").value)
+
+    ];
+
+    if (marks.some(mark => mark < 0 || mark > 100)) {
+
+        document.getElementById("output").innerHTML =
+            "<p style='color:red'>Enter marks between 0 and 100.</p>";
+
+        return;
+    }
+
+    let total =
+        marks.reduce((sum, mark) => sum + mark, 0);
+
+    let average =
+        total / marks.length;
+
+    let maximum =
+        Math.max(...marks);
+
+    let minimum =
+        Math.min(...marks);
+
+    let grade;
+
+    if (average >= 90)
+        grade = "A+";
+
+    else if (average >= 80)
+        grade = "A";
+
+    else if (average >= 70)
+        grade = "B";
+
+    else if (average >= 60)
+        grade = "C";
+
+    else if (average >= 50)
+        grade = "D";
+
+    else
+        grade = "F";
+
+    document.getElementById("output").innerHTML = `
+
+        <table>
+
+        <tr>
+            <th>Total</th>
+            <th>Average</th>
+            <th>Maximum</th>
+            <th>Minimum</th>
+            <th>Grade</th>
+        </tr>
+
+        <tr>
+            <td>${total}</td>
+            <td>${average.toFixed(2)}</td>
+            <td>${maximum}</td>
+            <td>${minimum}</td>
+            <td>${grade}</td>
+        </tr>
+
+        </table>
+
+    `;
+
+}
+
+</script>
+
+</body>
+</html>
